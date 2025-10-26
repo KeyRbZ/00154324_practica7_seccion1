@@ -1,6 +1,6 @@
 # Práctica 7 - Autenticación React + Express
-## Carnet: 00154324
-## Sección: 1
+#### Carnet: 00154324
+#### Sección: 1
 
 
 ## Respuestas a preguntas
