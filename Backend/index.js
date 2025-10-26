@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Rutas
-app.use('/api/auth', authRoutes);
+app.use('/', authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en puerto ${PORT}`);

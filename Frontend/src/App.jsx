@@ -21,7 +21,7 @@ const App = () => {
 
   const getUserProfile = async (token) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/auth/profile', {
+      const response = await axios.get('http://localhost:5000/protected', {
         headers: { Authorization: token }
       });
       setUser(response.data.user);
@@ -42,7 +42,10 @@ const App = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/register', formData);
+      await axios.post('http://localhost:5000/signin', {
+        ...formData,
+        action: 'register'
+      });
       alert('Usuario registrado exitosamente. Ahora puedes iniciar sesión.');
       setFormData({ email: '', password: '' });
     } catch (error) {
@@ -54,7 +57,10 @@ const App = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post('http://localhost:5000/signin', {
+        ...formData,
+        action: 'login'
+      });
       const { token, user } = response.data;
       
       localStorage.setItem('token', token);
