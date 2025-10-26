@@ -13,7 +13,7 @@ router.post('/signin', async (req, res) => {
   try {
     const { email, password, action } = req.body;
     
-    // REGISTRO
+    // REGISTRO DE USUARIO
     if (action === 'register') {
       // Verificar si el usuario ya existe
       const userExists = users.find(user => user.email === email);
@@ -73,7 +73,7 @@ router.post('/signin', async (req, res) => {
   }
 });
 
-// Ruta PROTEGIDA
+// Ruta PROTEGIDA 
 router.get('/protected', verifyToken, (req, res) => {
   res.json({ 
     message: 'Información protegida', 

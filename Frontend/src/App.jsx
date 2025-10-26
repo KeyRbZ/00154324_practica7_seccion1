@@ -53,7 +53,7 @@ const App = () => {
     }
   };
 
-  // LOGIN
+  // LOGIN DEL USUARIO 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
